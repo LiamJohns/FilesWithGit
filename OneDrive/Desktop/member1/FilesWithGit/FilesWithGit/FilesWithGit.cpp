@@ -10,7 +10,7 @@ struct style {
     int size;
     string brand;
     string colour;
-    float price
+    float price;
 
 
 
@@ -21,14 +21,14 @@ struct style {
 int main()
 {
     int i;
-
+    string colour;
     struct style shoes[5];
 
-    for (int i = 0; i < 5:i++) {
+    for (i = 0; i < 2; i++) {
         cout << "please enter the following information about the shoes in stock: ";
 
         cout << "\nPlease enter the color of the shoes:";
-        cin >> shoes[i].color;
+        cin >> shoes[i].colour;
 
         cout << "\n Please enter the brand of the shoes ";
         cin >> shoes[i].brand;
@@ -37,11 +37,22 @@ int main()
         cin >> shoes[i].price;
 
     }
-    ofstream myfile("shoes.txt");
+    for (i = 0; i < 2; i++) {
+        ofstream myfile("shoes.txt");
 
-    myfile << "hello world!";
+        myfile << shoes[i].colour;
+        myfile.close();
 
 
-    myfile.close();
+
+    }
+     ifstream myfile("shoes.txt");
+    cout << "\nReading from the file: ";
+    while (getline(myfile,shoes[i].colour)) {
+        cout<<"\n"<<shoes[i].colour;
+    }
+    
+
+    
 }
 
